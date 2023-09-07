@@ -33,21 +33,37 @@ public class OperacionesMatematicas {
                matrizB[i][j]=leer.nextInt();
            } 
         }
-         int[][] resultado= new int [filas][columnas];
+         int[][] resultadoSuma= new int [filas][columnas];
          
         for(int i=0; i<filas; i++){
            for(int j=0; j<columnas; j++){
-               resultado[i][j]=matrizA[i][j]+matrizB[i][j];
+               resultadoSuma[i][j]=matrizA[i][j]+matrizB[i][j];
            }
         }
         System.out.println("Resultado de la suma: ");
         for(int i=0; i<filas; i++){
            for(int j=0; j<columnas; j++){
-               resultado[i][j]=matrizA[i][j]+matrizB[i][j];
-               System.out.println(resultado[i][j]+" ");
+               resultadoSuma[i][j]=matrizA[i][j]+matrizB[i][j];
+               System.out.println(resultadoSuma[i][j]+" ");
            }
            System.out.println();
         }
+        
+        int[][] ProductoMatrices= new int [filas][columnas];
+       for(int i=0; i<filas; i++){
+           for(int j=0; j<columnas; j++){
+               ProductoMatrices[i][j]=matrizA[i][j]*matrizB[i][j];
+           }
+        } 
+       System.out.println("Producto de matrices= ");
+        for(int i=0; i<filas; i++){
+           for(int j=0; j<columnas; j++){
+            ProductoMatrices[i][j]=matrizA[i][j]*matrizB[i][j];
+               System.out.println(ProductoMatrices[i][j]+" ");
+           }
+           System.out.println();
+        }
+       
                 
     }
     
