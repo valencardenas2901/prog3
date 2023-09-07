@@ -43,7 +43,6 @@ public class OperacionesMatematicas {
         System.out.println("Resultado de la suma: ");
         for(int i=0; i<filas; i++){
            for(int j=0; j<columnas; j++){
-               resultadoSuma[i][j]=matrizA[i][j]+matrizB[i][j];
                System.out.println(resultadoSuma[i][j]+" ");
            }
            System.out.println();
@@ -58,13 +57,39 @@ public class OperacionesMatematicas {
        System.out.println("Producto de matrices= ");
         for(int i=0; i<filas; i++){
            for(int j=0; j<columnas; j++){
-            ProductoMatrices[i][j]=matrizA[i][j]*matrizB[i][j];
                System.out.println(ProductoMatrices[i][j]+" ");
            }
            System.out.println();
         }
+        
+        int escalar=0;
+       System.out.println("Ingrese el escalar");
+        escalar = leer.nextInt();
        
-                
+        int[][] ProductoEscalarA= new int [filas][columnas];
+        int[][] ProductoEscalarB= new int [filas][columnas];
+       for(int i=0; i<filas; i++){
+           for(int j=0; j<columnas; j++){
+               ProductoEscalarA[i][j]=matrizA[i][j]*escalar;
+               ProductoEscalarB[i][j]=matrizB[i][j]*escalar;
+           }
+        }
+       System.out.println("Productos escalar A= ");
+        for(int i=0; i<filas; i++){
+           for(int j=0; j<columnas; j++){
+               System.out.println(ProductoEscalarA[i][j]+" "); 
+           }
+           System.out.println();
+        }
+        System.out.println("Productos escalar B= ");
+        for(int i=0; i<filas; i++){
+           for(int j=0; j<columnas; j++){
+               System.out.println(ProductoEscalarB[i][j]+" "); 
+           }
+           System.out.println();
+        } 
+       
+    
     }
     
 }
