@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Entrada {
@@ -11,5 +12,9 @@ public class Entrada {
     public static String readText(String mss){
         System.out.println(mss);
         return input.nextLine();
+    }
+
+    static LinkedList<Asignatura> loadFile(String archivo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
