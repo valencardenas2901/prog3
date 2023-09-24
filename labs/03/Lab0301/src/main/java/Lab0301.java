@@ -40,7 +40,18 @@ static Queue<String> codes = new LinkedList<>();
         return true;
     }
     public static void registro_asignaturas(){
-        
+        do {
+            int sem = Entrada.readInt("\nVer asignaturas del semestre: ", 1, 10);
+            mostrar_asignaturas(sem);
+        } while (false);
+    }
+    
+    public static void mostrar_asignaturas(int materias) {
+        for (Asignatura s : Asignaturas_disponibles) {
+            if (s.getSemestre() == materias)
+                System.out.println(s);
+        }
+        System.out.println();
     }
     public static void reporte_registro_estudiante(){
         
