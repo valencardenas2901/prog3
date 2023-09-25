@@ -11,6 +11,7 @@ import java.util.TimerTask;
     private String placa;
     private String tipo;
     private LocalDateTime fechaHoraIngreso;
+    private LocalDateTime fechaHoraSalida;
     private int numero; 
 
     public Carro(String placa, String tipo, LocalDateTime fechaHoraIngreso) {
@@ -20,7 +21,11 @@ import java.util.TimerTask;
         this.numero = numero;
     }
 
-    public String getPlaca() {
+    public void registrarSalida(LocalDateTime fechaHoraSalida) {
+        this.fechaHoraSalida = fechaHoraSalida;
+    }
+    
+    public String getPlaca(){
         return placa;
     }
 
@@ -30,6 +35,10 @@ import java.util.TimerTask;
 
     public LocalDateTime getFechaHoraIngreso() {
         return fechaHoraIngreso;
+    }
+
+    public LocalDateTime getFechaHoraSalida() {
+        return fechaHoraSalida;
     }
 
     public int getNumero() {
@@ -48,11 +57,17 @@ import java.util.TimerTask;
         this.fechaHoraIngreso = fechaHoraIngreso;
     }
 
+    public void setFechaHoraSalida(LocalDateTime fechaHoraSalida) {
+        this.fechaHoraSalida = fechaHoraSalida;
+    }
+    
     public void setNumero(int numero) {
         this.numero = numero;
     }
     
      public String toString() {
+         int numero = 0;
+         numero++;
         return "Vehículo #" + numero + " - Placa: " + placa + " - Tipo: " + tipo + " - Fecha y Hora de Ingreso: " + fechaHoraIngreso;
     }
 }
@@ -60,6 +75,7 @@ import java.util.TimerTask;
     public class registroIngresoVehiculos {
     private static List<Carro> listaVehiculos = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    private static Object carro;
     
     public static void main(String[] args) {
         Timer timer = new Timer();
@@ -68,6 +84,8 @@ import java.util.TimerTask;
             public void run() {
                 Scanner leer= new Scanner(System.in);
                 Timer timer = new Timer();
+                
+                
                 LocalDateTime fechaHoraIngreso = LocalDateTime.now();
                  
                 System.out.println("Ingrese la placa");
@@ -83,6 +101,15 @@ import java.util.TimerTask;
                 
                     }
         }, 0, 3000);
+        
+        LocalDateTime fechaHoraSalida = LocalDateTime.now();
+            carro.registrarSalida(fechaHoraSalida);
+    }
+    public static void salida(String placa, String tipo, LocalDateTime fechaHoraIngreso, int numero){
+     
+       System.out.println("Ingrese la placa del vehiculo");
+       
+        
     }
     
 }
