@@ -22,6 +22,7 @@ public class Carrera extends Thread{
         
         int auto1 = 0;
         int auto2 = 0;
+        int auto3= 0;
         
          while(true){
              try{
@@ -29,8 +30,9 @@ public class Carrera extends Thread{
                   sleep((int)(Math.random() * 1000));
                   auto1 = auto.getPrimerAuto().getLocation().x;
                   auto2 = auto.getSegundoAuto().getLocation().x;
+                  auto3 = auto.getSegundoAuto().getLocation().x;
                   
-                  if(auto1 < auto.getBarrera().getLocation().x - 125 && auto2 < auto.getBarrera().getLocation().x - 125){
+                  if(auto1 < auto.getBarrera().getLocation().x - 125 && auto2 < auto.getBarrera().getLocation().x - 125 && auto3 < auto.getBarrera().getLocation().x - 125){
                       etiqueta.setLocation(etiqueta.getLocation().x + 10,etiqueta.getLocation().y);
                       auto.repaint();
                   }else{
@@ -42,10 +44,13 @@ public class Carrera extends Thread{
              }
             
              if(etiqueta.getLocation().x >= auto.getBarrera().getLocation().x - 125){
-                  if(auto1 > auto2){
+                  if(auto1 > auto2 && auto1 > auto3){
                       JOptionPane.showMessageDialog(null,"Gano el primer auto");
                   }
-                  else if(auto2 > auto1){
+                  else if(auto2 > auto1 && auto2 > auto3){
+                      JOptionPane.showMessageDialog(null,"Gano el segundo auto");
+                  }
+                  else if(auto3 > auto1 && auto3 > auto2){
                       JOptionPane.showMessageDialog(null,"Gano el segundo auto");
                   }
                   else{
