@@ -44,14 +44,14 @@ public class Carrera extends Thread{
              }
             
              if(etiqueta.getLocation().x >= auto.getBarrera().getLocation().x - 125){
-                  if(auto1 > auto2 && auto1 > auto3){
+                  if(auto1 > auto2 || auto1 > auto3){
                       JOptionPane.showMessageDialog(null,"Gano el primer auto");
                   }
-                  else if(auto2 > auto1 && auto2 > auto3){
+                  else if(auto2 > auto1 || auto2 > auto3){
                       JOptionPane.showMessageDialog(null,"Gano el segundo auto");
                   }
-                  else if(auto3 > auto1 && auto3 > auto2){
-                      JOptionPane.showMessageDialog(null,"Gano el segundo auto");
+                  else if(auto3 > auto1 || auto3 > auto2){
+                      JOptionPane.showMessageDialog(null,"Gano el tercer auto");
                   }
                   else{
                       JOptionPane.showMessageDialog(null,"Empate");
