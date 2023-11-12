@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
 public class frmPersonas extends javax.swing.JFrame {
 
     Persona1 p1;
-    persona2 p2;
-    persona3 p3;
+    Persona2 p2;
+    Persona3 p3;
     
     boolean respuesta1 = false;
     boolean respuesta2 = false;
@@ -30,9 +30,9 @@ public class frmPersonas extends javax.swing.JFrame {
         lblPersona1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        DetenerPersona2 = new javax.swing.JButton();
+        btnDetenerPersona2 = new javax.swing.JButton();
         btnDetenerPersona1 = new javax.swing.JButton();
-        DetenerPersona3 = new javax.swing.JButton();
+        btnDetenerPersona3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         cbDificultad = new javax.swing.JComboBox<>();
@@ -46,10 +46,10 @@ public class frmPersonas extends javax.swing.JFrame {
         lblPersona1.setIcon(new javax.swing.ImageIcon("C:\\Users\\usuario\\Documents\\prog3-main (3)\\prog3-main\\labs\\06\\juego2\\src\\main\\java\\Imagenes\\img2.jpg")); // NOI18N
         lblPersona1.setToolTipText("");
 
-        DetenerPersona2.setText("DETENER");
-        DetenerPersona2.addActionListener(new java.awt.event.ActionListener() {
+        btnDetenerPersona2.setText("DETENER");
+        btnDetenerPersona2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DetenerPersona2ActionPerformed(evt);
+                btnDetenerPersona2ActionPerformed(evt);
             }
         });
 
@@ -60,10 +60,10 @@ public class frmPersonas extends javax.swing.JFrame {
             }
         });
 
-        DetenerPersona3.setText("DETENER");
-        DetenerPersona3.addActionListener(new java.awt.event.ActionListener() {
+        btnDetenerPersona3.setText("DETENER");
+        btnDetenerPersona3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DetenerPersona3ActionPerformed(evt);
+                btnDetenerPersona3ActionPerformed(evt);
             }
         });
 
@@ -105,7 +105,7 @@ public class frmPersonas extends javax.swing.JFrame {
                         .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DetenerPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDetenerPersona2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -118,7 +118,7 @@ public class frmPersonas extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(DetenerPersona3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnDetenerPersona3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
@@ -151,9 +151,9 @@ public class frmPersonas extends javax.swing.JFrame {
                                 .addComponent(lblPersona1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DetenerPersona3)
+                    .addComponent(btnDetenerPersona3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DetenerPersona2)
+                        .addComponent(btnDetenerPersona2)
                         .addComponent(btnDetenerPersona1)))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -165,11 +165,11 @@ public class frmPersonas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DetenerPersona2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetenerPersona2ActionPerformed
+    private void btnDetenerPersona2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerPersona2ActionPerformed
      p2.stop();
     respuesta2 = true;
     comprobarResultado();
-    }//GEN-LAST:event_DetenerPersona2ActionPerformed
+    }//GEN-LAST:event_btnDetenerPersona2ActionPerformed
 
     private void btnDetenerPersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerPersona1ActionPerformed
     p1.stop();
@@ -177,11 +177,11 @@ public class frmPersonas extends javax.swing.JFrame {
     comprobarResultado();
     }//GEN-LAST:event_btnDetenerPersona1ActionPerformed
 
-    private void DetenerPersona3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DetenerPersona3ActionPerformed
+    private void btnDetenerPersona3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerPersona3ActionPerformed
     p3.stop();
     respuesta3 = true;
     comprobarResultado();
-    }//GEN-LAST:event_DetenerPersona3ActionPerformed
+    }//GEN-LAST:event_btnDetenerPersona3ActionPerformed
 
     private void cbDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDificultadActionPerformed
         // TODO add your handling code here:
@@ -220,27 +220,7 @@ public class frmPersonas extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TragaMonedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TragaMonedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TragaMonedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TragaMonedas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -250,18 +230,18 @@ public class frmPersonas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DetenerPersona2;
-    private javax.swing.JButton DetenerPersona3;
     private javax.swing.JButton btnDetenerPersona1;
+    private javax.swing.JButton btnDetenerPersona2;
+    private javax.swing.JButton btnDetenerPersona3;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JComboBox<String> cbDificultad;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblPersona1;
-    private javax.swing.JLabel lblPersona2;
-    private javax.swing.JLabel lblPersona3;
+    public static javax.swing.JLabel lblPersona1;
+    public static javax.swing.JLabel lblPersona2;
+    public static javax.swing.JLabel lblPersona3;
     // End of variables declaration//GEN-END:variables
 
 private void comprobarResultado(){
@@ -272,7 +252,7 @@ private void comprobarResultado(){
             Logger.getLogger(frmPersonas.class.getName()).log(Level.SEVERE, null,ex);
         }
         btnIniciar.setEnabled(true);
-        if(lblPersona1.getIcon().toString().equals(lblPersona2.getIcon().toString())&&lblPersona1.getIcon().toString().equals(lblPersona3.getIcon().toString())){
+        if(lblPersona1.getIcon().toString().equals(lblPersona2.getIcon().toString())&& lblPersona1.getIcon().toString().equals(lblPersona3.getIcon().toString())){
             JOptionPane.showMessageDialog(null, "Felicitaciones, has ganado!!!");
         }else{
          JOptionPane.showMessageDialog(null, "Vuelve a intentarlo");   
