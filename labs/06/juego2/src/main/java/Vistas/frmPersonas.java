@@ -210,7 +210,7 @@ public class frmPersonas extends javax.swing.JFrame {
     respuesta3 = false;
     btnIniciar.setEnabled(false);
     p1.start();
-    p2.starr();
+    p2.start();
     p3.start();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
