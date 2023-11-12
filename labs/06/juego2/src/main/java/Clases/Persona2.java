@@ -16,7 +16,7 @@ public class Persona2 extends Thread {
     
     public void run(){
         while (true){
-            int numero = (int)(Math.random() * (9) +1);
+            int numero = (int)(Math.random() * (8) +1);
             String ruta = "src\\main\\java\\Imagenes\\"+numero+".png";
             ImageIcon imageIcon = new ImageIcon(ruta);
             Vistas.frmPersonas.lblPersona2.setIcon(imageIcon);
