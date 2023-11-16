@@ -2,15 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SimuladorBicicleta extends javax.swing.JFrame {
     
    private JButton PDerecho, PIzquierdo;
    private JLabel I2, I1;
-
-    /**
-     * Creates new form SimuladorBicicleta
-     */
+    
+    
     public SimuladorBicicleta() {
         initComponents();
         this.setTitle("Bicicleta Estatica");
@@ -28,11 +30,15 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         add(I1);
         add(I2);
     }
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Modalidad = new javax.swing.JComboBox<>();
+        click = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,15 +54,22 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(508, Short.MAX_VALUE)
+                .addContainerGap(367, Short.MAX_VALUE)
+                .addComponent(click, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(click, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -71,6 +84,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SimuladorBicicleta().setVisible(true);
@@ -80,5 +94,34 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Modalidad;
+    private javax.swing.JLabel click;
     // End of variables declaration//GEN-END:variables
+
+private void encender(){
+    
+switch (Modalidad.getSelectedIndex()){
+
+    case 0:
+        break;
+    case 1:
+        
+        PIzquierdo = false;
+        PDerecho = true;
+        break;
+        
+    case 2:
+        
+        click ==  true;
+        
+        
+        
+        for(int i=0; i<)
+        break;
+        
+    
+    
+}
+
+
+}
 }
