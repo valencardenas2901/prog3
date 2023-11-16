@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 public class SimuladorBicicleta extends javax.swing.JFrame {
     
+    int clicks;
    private JButton PDerecho, PIzquierdo;
    private JLabel I2, I1;
     
@@ -29,6 +30,30 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         add(PDerecho);
         add(I1);
         add(I2);
+       
+        PIzquierdo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PIzquierdo.setVisible(false);
+                PDerecho.setVisible(true);
+                // Actualizar propiedades de la bicicleta y los indicadores si es necesario
+            }
+        });
+
+        PDerecho.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PDerecho.setVisible(false);
+                PIzquierdo.setVisible(true);
+                // Actualizar propiedades de la bicicleta y los indicadores si es necesario
+            }
+        });
+       
+         I1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+        calorias();
+        
     }
     
     
@@ -38,7 +63,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
     private void initComponents() {
 
         Modalidad = new javax.swing.JComboBox<>();
-        click = new javax.swing.JLabel();
+        CLICK = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,27 +74,31 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
             }
         });
 
+        CLICK.setText("CLICKS");
+        CLICK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLICKActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(367, Short.MAX_VALUE)
-                .addComponent(click, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(375, Short.MAX_VALUE)
+                .addComponent(CLICK, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(click, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(160, 160, 160)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CLICK, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -79,6 +108,13 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
     private void ModalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModalidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ModalidadActionPerformed
+
+    private void CLICKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLICKActionPerformed
+      Scanner leer = new Scanner(System.in);
+        
+        System.out.println(" ");
+       clicks = leer.nextInt();
+    }//GEN-LAST:event_CLICKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,35 +129,31 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CLICK;
     private javax.swing.JComboBox<String> Modalidad;
-    private javax.swing.JLabel click;
     // End of variables declaration//GEN-END:variables
 
 private void encender(){
     
 switch (Modalidad.getSelectedIndex()){
 
-    case 0:
+    case 0: 
         break;
-    case 1:
-        
-        PIzquierdo = false;
-        PDerecho = true;
+    case 1: 
         break;
-        
     case 2:
         
-        click ==  true;
-        
-        
-        
-        for(int i=0; i<)
-        break;
-        
-    
+    for (int i = 0; i<clicks; i++ ){
+        PIzquierdo.setVisible(false);
+                PDerecho.setVisible(true);
+    }
     
 }
-
-
+    }
+private void calorias(){
+    int calorias=0;
+    
+    calorias= (int) (clicks*0.20);
+    
 }
 }
