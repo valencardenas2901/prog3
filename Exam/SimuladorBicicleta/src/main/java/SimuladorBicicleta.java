@@ -56,26 +56,23 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
       timer.start();
 
       PIzquierdo.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-          ContadorIz++;
-        }
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ContadorIz++;
         PIzquierdo.setVisible(false);
         PDerecho.setVisible(true);
+    }
+});
 
-      });
-
-      PDerecho.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          ContadorDe++;
-        }
+PDerecho.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        ContadorDe++;
         PDerecho.setVisible(false);
         PIzquierdo.setVisible(true);
+    }
+});
 
-      });
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
