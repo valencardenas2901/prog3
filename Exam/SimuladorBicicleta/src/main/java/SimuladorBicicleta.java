@@ -2,27 +2,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class SimuladorBicicleta extends javax.swing.JFrame {
-    
-    int clicks;
+   
    private JButton PDerecho, PIzquierdo;
    private JLabel I2, I1;
-    
+   private Timer timer;
+   private int ContadorIz, ContadorDe; 
+   int clicks;
     
     public SimuladorBicicleta() {
         initComponents();
         this.setTitle("Bicicleta Estatica");
+        setSize(500, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        PIzquierdo = new JButton("Pedal Izquierdo");
-        PDerecho = new JButton("Pedal Derecho");    
+        PIzquierdo = new JButton("PEDAL IZQUIERDO");
+        PDerecho = new JButton("PEDAL DERECHO");    
                 
-        I1 = new JLabel("Indicador 1: 0");
-        I2 = new JLabel("Indicador 2: 0");
+        I1 = new JLabel("INDICADOR 1: 0");
+        I2 = new JLabel("INDICADOR 2: 0");
         
 
         setLayout(new GridLayout(2, 2));
@@ -34,6 +35,8 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         PIzquierdo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
+                ContadorIz++;
                 PIzquierdo.setVisible(false);
                 PDerecho.setVisible(true);
                 // Actualizar propiedades de la bicicleta y los indicadores si es necesario
@@ -43,6 +46,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         PDerecho.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ContadorDe++;
                 PDerecho.setVisible(false);
                 PIzquierdo.setVisible(true);
                 // Actualizar propiedades de la bicicleta y los indicadores si es necesario
@@ -53,7 +57,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
         calorias();
-        
+                 }
     }
     
     
@@ -113,19 +117,21 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
       Scanner leer = new Scanner(System.in);
         
         System.out.println(" ");
-       clicks = leer.nextInt();
+        clicks = leer.nextInt();
     }//GEN-LAST:event_CLICKActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
+            
+        SwingUtilities.invokeLater(new Runnable() {
+        @Override
+            
             public void run() {
                 new SimuladorBicicleta().setVisible(true);
             }
-        });
+                });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -155,5 +161,6 @@ private void calorias(){
     
     calorias= (int) (clicks*0.20);
     
+}
 }
 }
