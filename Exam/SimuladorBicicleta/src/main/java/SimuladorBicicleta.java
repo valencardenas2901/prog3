@@ -7,13 +7,14 @@ import java.util.Scanner;
 public class SimuladorBicicleta extends javax.swing.JFrame {
 
     private JButton PDerecho, PIzquierdo;
-    private JLabel I2, I1, temporizador;
+    private JLabel I2, I1, temporizador, caloriasL;
     private Timer timer;
     private int ContadorIz, ContadorDe, segundos, limiteClicks;
     private int clickIzquierdo=0;
     private int clickDerecho=0;
     private boolean isLeftClick = true;
     private double calorias = 0.0;
+    private JComboBox<String> modalidad;
     
     private JTextField limiteClics;
 
@@ -34,14 +35,38 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
 
       panelClicks.add(new JLabel("lIMITE DE CLICKS: "));
       panelClicks.add(limiteClics);
+      
+      caloriasL = new JLabel("Calorías: 0.0"); // Inicializa la etiqueta de calorías
+        JPanel panelCalorias = new JPanel();
+        panelCalorias.add(caloriasL);
+        
+        modalidad = new JComboBox<>(new String[]{"Automático", "Manual"});
+        modalidad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String modoSeleccionado = (String) modalidad.getSelectedItem();
+                if (modoSeleccionado.equals("Automático")) {
+                    limiteClicks = 1;
+                    limiteClics.setEnabled(false); // Deshabilita el campo de texto en el modo automático
+                } else {
+                    limiteClics.setEnabled(true); // Habilita el campo de texto en el modo manual
+                }
+            }
+        });
+        
+        JPanel panelModalidad = new JPanel();
+        panelModalidad.add(new JLabel("Modo de Clicks:"));
+        panelModalidad.add(modalidad);
 
-      setLayout(new GridLayout(4, 2));
+      setLayout(new GridLayout(5, 2));
       add(PIzquierdo);
       add(PDerecho);
       add(I1);
       add(I2);
       add(temporizador);
       add(panelClicks);
+      add(panelCalorias);
+      add(panelModalidad);
 
       timer = new Timer(1000, new ActionListener() {
         @Override
@@ -110,7 +135,6 @@ PDerecho.addActionListener(new ActionListener() {
     private void initComponents() {
 
         Modalidad = new javax.swing.JComboBox<>();
-        CLICK = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,21 +145,12 @@ PDerecho.addActionListener(new ActionListener() {
             }
         });
 
-        CLICK.setText("CLICKS");
-        CLICK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLICKActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(375, Short.MAX_VALUE)
-                .addComponent(CLICK, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addContainerGap(508, Short.MAX_VALUE)
                 .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
@@ -143,9 +158,7 @@ PDerecho.addActionListener(new ActionListener() {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(160, 160, 160)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLICK, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Modalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
@@ -155,10 +168,6 @@ PDerecho.addActionListener(new ActionListener() {
     private void ModalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModalidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ModalidadActionPerformed
-
-    private void CLICKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLICKActionPerformed
-
-    }//GEN-LAST:event_CLICKActionPerformed
 
     public static void main(String args[]) {
             
@@ -178,12 +187,11 @@ JOptionPane.showMessageDialog(simulador, "Por favor ingrese un numero valido");
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CLICK;
     private javax.swing.JComboBox<String> Modalidad;
     // End of variables declaration//GEN-END:variables
 
     private void mostrarCalorias() {
-        JOptionPane.showMessageDialog(this, "Calorías quemadas: " + calorias, "Estadísticas de ejercicio", JOptionPane.INFORMATION_MESSAGE);
+        caloriasL.setText("Calorias: " + calorias);
     }
 
 }
