@@ -10,7 +10,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
    private JButton PDerecho, PIzquierdo;
    private JLabel I2, I1;
    private Timer timer;
-   private int ContadorIz, ContadorDe; 
+   private int ContadorIz, ContadorDe, segundos; 
    int clicks;
     
     public SimuladorBicicleta() {
@@ -25,12 +25,14 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         I1 = new JLabel("INDICADOR 1: 0");
         I2 = new JLabel("INDICADOR 2: 0");
         
-
-        setLayout(new GridLayout(2, 2));
+       JLabel temporizador = new JLabel("Tiempo: 0 seg");
+        
+        setLayout(new GridLayout(3, 2));
         add(PIzquierdo);
         add(PDerecho);
         add(I1);
         add(I2);
+        add(temporizador);
        
         PIzquierdo.addActionListener(new ActionListener() {
             @Override
@@ -52,13 +54,14 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
                 // Actualizar propiedades de la bicicleta y los indicadores si es necesario
             }
         });
-       
-         I1.addActionListener(new ActionListener() {
+    }
+    
+         /*I1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
         calorias();
                  }
-    }
+    }*/
     
     
     
@@ -156,11 +159,10 @@ switch (Modalidad.getSelectedIndex()){
     
 }
     }
-private void calorias(){
+/*private void calorias(){
     int calorias=0;
     
     calorias= (int) (clicks*0.20);
     
-}
-}
+}*/
 }
