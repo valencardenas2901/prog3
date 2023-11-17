@@ -10,6 +10,8 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
     private JLabel I2, I1, temporizador;
     private Timer timer;
     private int ContadorIz, ContadorDe, segundos, limiteClicks;
+    private int clickIzquierdo=0;
+    private int clickDerecho=0;
     private JTextField limiteClics;
 
     public SimuladorBicicleta() {
@@ -58,18 +60,30 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
       PIzquierdo.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        ContadorIz++;
-        PIzquierdo.setVisible(false);
-        PDerecho.setVisible(true);
+        if(clickIzquierdo < limiteClicks){
+            ContadorIz++;
+            clickIzquierdo++;
+            
+            if(clickIzquierdo == limiteClicks){
+           PIzquierdo.setVisible(false);
+        PDerecho.setVisible(true); 
+        }
+        }
     }
 });
 
 PDerecho.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        ContadorDe++;
-        PDerecho.setVisible(false);
-        PIzquierdo.setVisible(true);
+        if(clickDerecho < limiteClicks){
+           ContadorDe++;
+           clickDerecho++;
+           
+           if(clickDerecho == limiteClicks){
+           PDerecho.setVisible(false);
+           PIzquierdo.setVisible(true); 
+        }
+        }
     }
 });
 
