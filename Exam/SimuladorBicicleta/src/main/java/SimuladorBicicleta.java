@@ -12,6 +12,9 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
     private int ContadorIz, ContadorDe, segundos, limiteClicks;
     private int clickIzquierdo=0;
     private int clickDerecho=0;
+    private boolean isLeftClick = true;
+    private double calorias = 0.0;
+    
     private JTextField limiteClics;
 
     public SimuladorBicicleta() {
@@ -60,32 +63,46 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
       PIzquierdo.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(clickIzquierdo < limiteClicks){
-            ContadorIz++;
-            clickIzquierdo++;
-            
-            if(clickIzquierdo == limiteClicks){
-           PIzquierdo.setVisible(false);
-        PDerecho.setVisible(true); 
+            if (isLeftClick) {
+                clickIzquierdo++;
+                ContadorIz++;
+                calorias += 0.2;
+            } else {
+                clickIzquierdo = 1;
+                ContadorIz = 1;
+                calorias = 0.2;
+            }
+
+            if (clickIzquierdo == limiteClicks) {
+                clickIzquierdo = 0;
+                isLeftClick = false;
+            }
+
+            mostrarCalorias();
         }
-        }
-    }
-});
+    });
 
 PDerecho.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(clickDerecho < limiteClicks){
-           ContadorDe++;
-           clickDerecho++;
-           
-           if(clickDerecho == limiteClicks){
-           PDerecho.setVisible(false);
-           PIzquierdo.setVisible(true); 
+            if (!isLeftClick) {
+                clickDerecho++;
+                ContadorDe++;
+                calorias += 0.2;
+            } else {
+                clickDerecho = 1;
+                ContadorDe = 1;
+                calorias = 0.2;
+            }
+
+            if (clickDerecho == limiteClicks) {
+                clickDerecho = 0;
+                isLeftClick = true;
+            }
+
+            mostrarCalorias();
         }
-        }
-    }
-});
+    });
 
     }
     @SuppressWarnings("unchecked")
@@ -165,5 +182,8 @@ JOptionPane.showMessageDialog(simulador, "Por favor ingrese un numero valido");
     private javax.swing.JComboBox<String> Modalidad;
     // End of variables declaration//GEN-END:variables
 
+    private void mostrarCalorias() {
+        JOptionPane.showMessageDialog(this, "Calorías quemadas: " + calorias, "Estadísticas de ejercicio", JOptionPane.INFORMATION_MESSAGE);
+    }
 
 }
