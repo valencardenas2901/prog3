@@ -10,8 +10,8 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
    private JButton PDerecho, PIzquierdo;
    private JLabel I2, I1, temporizador;
    private Timer timer;
-   private int ContadorIz, ContadorDe, segundos, clicks; 
-   private JTextField limiteClicks;
+   private int ContadorIz, ContadorDe, segundos, limiteClicks; 
+   private JTextField limiteClics;
     
     public SimuladorBicicleta() {
         this.setTitle("Bicicleta Estatica");
@@ -21,7 +21,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
         PIzquierdo = new JButton("PEDAL IZQUIERDO");
         PDerecho = new JButton("PEDAL DERECHO");  
         
-        limiteClicks = new JTextField(5);
+        limiteClics = new JTextField(5);
         temporizador = new JLabel("Tiempo: 0 seg");
                 
         I1 = new JLabel("INDICADOR 1: 0");
@@ -29,7 +29,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
        JPanel panelClicks = new JPanel();
        
        panelClicks.add(new JLabel("lIMITE DE CLICKS: "));
-       panelClicks.add(limiteClicks);
+       panelClicks.add(limiteClics);
         
         setLayout(new GridLayout(4, 2));
         add(PIzquierdo);
@@ -47,7 +47,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
             I1.setText("Indicador 1: " + ContadorIz);
             I2.setText("Indicador 2: " + ContadorDe);
              
-            if(limiteClicks > 0 && (ContadorIz + ContadorDe) >= limiteClicks){
+            if(limiteClicks > 0 && ContadorIz >= limiteClicks && ContadorDe >= limiteClicks){
                 timer.stop();
                 PIzquierdo.setEnabled(false);
                 PDerecho.setEnabled(false);
@@ -62,9 +62,9 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
                     
                     ContadorIz++;
                 }
+            }
                 PIzquierdo.setVisible(false);
                 PDerecho.setVisible(true);
-                // Actualizar propiedades de la bicicleta y los indicadores si es necesario
             }
                     });
 
@@ -139,7 +139,6 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
             
         SwingUtilities.invokeLater(new Runnable() {
         @Override
-            
             public void run() {
 SimuladorBicicleta simulador = new SimuladorBicicleta();
                 simulador.setVisible(true);
@@ -151,7 +150,6 @@ JOptionPane.showMessageDialog(simulador, "Por favor ingrese un numero valido");
             }
 }
                 });
-    }
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -159,27 +157,5 @@ JOptionPane.showMessageDialog(simulador, "Por favor ingrese un numero valido");
     private javax.swing.JComboBox<String> Modalidad;
     // End of variables declaration//GEN-END:variables
 
-private void encender(){
-    
-switch (Modalidad.getSelectedIndex()){
 
-    case 0: 
-        break;
-    case 1: 
-        break;
-    case 2:
-        
-    for (int i = 0; i<clicks; i++ ){
-        PIzquierdo.setVisible(false);
-                PDerecho.setVisible(true);
-    }
-    
-}
-    }
-/*private void calorias(){
-    int calorias=0;
-    
-    calorias= (int) (clicks*0.20);
-    
-}*/
 }
