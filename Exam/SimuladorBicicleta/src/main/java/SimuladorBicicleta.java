@@ -4,81 +4,78 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
-
 public class SimuladorBicicleta extends javax.swing.JFrame {
-   
-   private JButton PDerecho, PIzquierdo;
-   private JLabel I2, I1, temporizador;
-   private Timer timer;
-   private int ContadorIz, ContadorDe, segundos, limiteClicks; 
-   private JTextField limiteClics;
-    
-    public SimuladorBicicleta() {
-        this.setTitle("Bicicleta Estatica");
-        setSize(500, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        PIzquierdo = new JButton("PEDAL IZQUIERDO");
-        PDerecho = new JButton("PEDAL DERECHO");  
-        
-        limiteClics = new JTextField(5);
-        temporizador = new JLabel("Tiempo: 0 seg");
-                
-        I1 = new JLabel("INDICADOR 1: 0");
-        I2 = new JLabel("INDICADOR 2: 0");
-       JPanel panelClicks = new JPanel();
-       
-       panelClicks.add(new JLabel("lIMITE DE CLICKS: "));
-       panelClicks.add(limiteClics);
-        
-        setLayout(new GridLayout(4, 2));
-        add(PIzquierdo);
-        add(PDerecho);
-        add(I1);
-        add(I2);
-        add(temporizador);
-        add(panelClicks);
-        
-        timer = new Timer(1000, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e){
-            segundos++;
-            temporizador.setText("Iempo transcurrido: " + segundos + "seg");
-            I1.setText("Indicador 1: " + ContadorIz);
-            I2.setText("Indicador 2: " + ContadorDe);
-             
-            if(limiteClicks > 0 && ContadorIz >= limiteClicks && ContadorDe >= limiteClicks){
-                timer.stop();
-                PIzquierdo.setEnabled(false);
-                PDerecho.setEnabled(false);
-            }
-        }
-        });
-        timer.start();
-        
-            PIzquierdo.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    
-                    ContadorIz++;
-                }
-            }
-                PIzquierdo.setVisible(false);
-                PDerecho.setVisible(true);
-            }
-                    });
 
-        PDerecho.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ContadorDe++;
-            }
+    private JButton PDerecho, PIzquierdo;
+    private JLabel I2, I1, temporizador;
+    private Timer timer;
+    private int ContadorIz, ContadorDe, segundos, limiteClicks;
+    private JTextField limiteClics;
+
+    public SimuladorBicicleta() {
+      this.setTitle("Bicicleta Estatica");
+      setSize(500, 200);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+      PIzquierdo = new JButton("PEDAL IZQUIERDO");
+      PDerecho = new JButton("PEDAL DERECHO");
+
+      limiteClics = new JTextField(5);
+      temporizador = new JLabel("Tiempo: 0 seg");
+
+      I1 = new JLabel("INDICADOR 1: 0");
+      I2 = new JLabel("INDICADOR 2: 0");
+      JPanel panelClicks = new JPanel();
+
+      panelClicks.add(new JLabel("lIMITE DE CLICKS: "));
+      panelClicks.add(limiteClics);
+
+      setLayout(new GridLayout(4, 2));
+      add(PIzquierdo);
+      add(PDerecho);
+      add(I1);
+      add(I2);
+      add(temporizador);
+      add(panelClicks);
+
+      timer = new Timer(1000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          segundos++;
+          temporizador.setText("Tiempo transcurrido: " + segundos + "seg");
+          I1.setText("Indicador 1: " + ContadorIz);
+          I2.setText("Indicador 2: " + ContadorDe);
+
+          if (limiteClicks > 0 && ContadorIz >= limiteClicks && ContadorDe >= limiteClicks) {
+            timer.stop();
+            PIzquierdo.setEnabled(false);
+            PDerecho.setEnabled(false);
+          }
         }
-                PDerecho.setVisible(false);
-                PIzquierdo.setVisible(true);
-                
-            }
-        });
+      });
+      timer.start();
+
+      PIzquierdo.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+          ContadorIz++;
+        }
+
+        PIzquierdo.setVisible(false);
+        PDerecho.setVisible(true);
+
+      });
+
+      PDerecho.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          ContadorDe++;
+        }
+        PDerecho.setVisible(false);
+        PIzquierdo.setVisible(true);
+
+      });
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -132,7 +129,7 @@ public class SimuladorBicicleta extends javax.swing.JFrame {
     }//GEN-LAST:event_ModalidadActionPerformed
 
     private void CLICKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLICKActionPerformed
-      Scanner leer = new Scanner(System.in);
+
     }//GEN-LAST:event_CLICKActionPerformed
 
     public static void main(String args[]) {
